@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Podora",
+  "name": "Search for podcast RSS feeds",
   "icons": [
     {
       "src": "favicon.ico",
