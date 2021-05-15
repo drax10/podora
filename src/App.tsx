@@ -11,7 +11,7 @@ function App() {
   const [searchResults, setSearchResults] = useState<itunesTrack[]>([]);
 
   return (
-    <div className="container mx-auto max-w-prose pt-16">
+    <div className="container mx-auto max-w-prose lg:pt-16 px-4">
       <SearchBar handleSearch={ (query: String) => searchPodcasts(query, setSearchResults) }/>
       { searchResults.map( result => <PodcastResult key={result.trackId} result={result}/> ) }
     </div>

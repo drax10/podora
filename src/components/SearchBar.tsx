@@ -10,7 +10,7 @@ function SearchBar({ handleSearch }: { handleSearch: Function }){
     }
 
     return (
-        <div className="flex my-8">
+        <div className="flex my-4 lg:mb-8">
             <input
                 className="flex-grow border-2 border-grey rounded-md p-1 mr-2"
                 value={searchRequest}
