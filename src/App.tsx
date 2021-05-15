@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="container mx-auto max-w-prose lg:pt-16 px-4">
-      <SearchBar handleSearch={handleSearch}/>
+      <SearchBar handleSearch={handleSearch} placeholder="ex: Hello Internet" />
       <PodcastSearchResultsList query={searchQuery} searchResults={searchResults} />
     </div>
   );

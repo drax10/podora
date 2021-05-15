@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function SearchBar({ handleSearch }: { handleSearch: Function }){
+function SearchBar({ handleSearch, placeholder }: { handleSearch: Function, placeholder: string }){
     const [searchRequest, setSearchRequest] = useState("");
 
     const searchOnReturnKeyPress = ( event: React.KeyboardEvent ) => {
@@ -14,6 +14,7 @@ function SearchBar({ handleSearch }: { handleSearch: Function }){
             <input
                 className="flex-grow border-2 border-grey rounded-md p-1 mr-2"
                 value={searchRequest}
+                placeholder={placeholder}
                 onChange={e => setSearchRequest(e.target.value)}
                 onKeyDown={searchOnReturnKeyPress}/>
             <button
