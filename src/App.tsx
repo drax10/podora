@@ -5,15 +5,23 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 
 import searchPodcasts from './api/searchPodcasts';
-import PodcastResult from './components/PodcastSearchResult';
+import PodcastSearchResultsList from './components/PodcastSearchResultsList';
 
 function App() {
-  const [searchResults, setSearchResults] = useState<itunesTrack[]>([]);
+  const [searchResults, setSearchResults] = useState<itunesTrack[]>();
+  const [searchQuery  , setSearchQuery  ] = useState<string>("");
+
+  const handleSearch = (query: string) => {
+    searchPodcasts(query, function( results: itunesTrack[] ){
+      setSearchResults( results )
+      setSearchQuery(query); 
+    });
+  }
 
   return (
     <div className="container mx-auto max-w-prose lg:pt-16 px-4">
-      <SearchBar handleSearch={ (query: String) => searchPodcasts(query, setSearchResults) }/>
-      { searchResults.map( result => <PodcastResult key={result.trackId} result={result}/> ) }
+      <SearchBar handleSearch={handleSearch}/>
+      <PodcastSearchResultsList query={searchQuery} searchResults={searchResults} />
     </div>
   );
 }
